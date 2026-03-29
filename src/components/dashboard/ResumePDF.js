@@ -24,13 +24,16 @@ const styles = StyleSheet.create({
   contactRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 10,
+    marginBottom: 8,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   contactItem: {
-    fontSize: 10,
-    marginRight: 20,
-    marginBottom: 5,
+    fontSize: 9,
+    marginBottom: 4,
     color: '#000000',
+    marginRight: 15,
+    flexShrink: 0,
   },
   section: {
     marginBottom: 25,
@@ -136,6 +139,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 const ResumePDF = ({ resume }) => {
   if (!resume) {
     return (
@@ -155,21 +159,19 @@ const ResumePDF = ({ resume }) => {
           <Text style={styles.name}>{resume.personalInfo?.name || 'YOUR NAME'}</Text>
           <View style={styles.contactRow}>
             {resume.personalInfo?.email && (
-              <Text style={styles.contactItem}>📧 {resume.personalInfo.email}</Text>
+              <Text style={styles.contactItem}>{resume.personalInfo.email}</Text>
             )}
             {resume.personalInfo?.phone && (
-              <Text style={styles.contactItem}>📱 {resume.personalInfo.phone}</Text>
+              <Text style={styles.contactItem}>{resume.personalInfo.phone}</Text>
             )}
             {resume.personalInfo?.location && (
-              <Text style={styles.contactItem}>📍 {resume.personalInfo.location}</Text>
+              <Text style={styles.contactItem}>{resume.personalInfo.location}</Text>
             )}
-          </View>
-          <View style={styles.contactRow}>
             {resume.personalInfo?.linkedin && (
-              <Text style={styles.contactItem}>💼 {resume.personalInfo.linkedin}</Text>
+              <Text style={styles.contactItem}>{resume.personalInfo.linkedin}</Text>
             )}
             {resume.personalInfo?.github && (
-              <Text style={styles.contactItem}>💻 {resume.personalInfo.github}</Text>
+              <Text style={styles.contactItem}>{resume.personalInfo.github}</Text>
             )}
           </View>
         </View>
