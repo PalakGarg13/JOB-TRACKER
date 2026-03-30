@@ -136,8 +136,8 @@ export default function ResumeBuilder() {
       setLastSavedAt(now);
       setSaveMessage('✅ Resume saved successfully!');
       
-      // REMOVED: Automatic form clearing - user controls when to clear
-      // Form will only clear when user explicitly clicks "Clear Form" button
+      // Emit data change event to refresh overview
+      window.dispatchEvent(new CustomEvent('cp:dataChanged'));
       
       setTimeout(() => setSaveMessage(null), 2000);
     } catch (error) {
